@@ -1,0 +1,37 @@
+title: "Puji Syukri Ilahi"
+description: "Strategic marketing, market intelligence, business growth, analytics, and corporate learning."
+url: "https://pujisyukriilahi.github.io"
+baseurl: "/bio"
+lang: "en"
+markdown: kramdown
+permalink: /insights/:title/
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+author:
+  name: "Puji Syukri Ilahi"
+  url: "https://pujisyukriilahi.github.io/bio/"
+  sameAs:
+    - "https://github.com/pujisyukriilahi"
+
+collections:
+  portfolio:
+    output: true
+    permalink: /portfolio/:name/
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "portfolio"
+    values:
+      layout: "portfolio"
