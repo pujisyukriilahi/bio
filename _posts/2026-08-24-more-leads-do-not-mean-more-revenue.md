@@ -1,56 +1,56 @@
 ---
 layout: post
-title: "More Leads Do Not Automatically Mean More Revenue"
+title: "Banyak Lead Tidak Otomatis Berarti Banyak Revenue"
 date: 2026-08-24
 categories:
-  - Marketing Analytics
+  - Analitik Pemasaran
 tags:
-  - Lead Generation
-  - Funnel
-  - Sales Conversion
-description: "Why lead volume alone is not enough to judge marketing performance, and what marketers should connect between leads, conversion, sales, and revenue."
+  - Generasi Lead
+  - Funnel Pemasaran
+  - Konversi Penjualan
+description: "Jumlah lead saja tidak cukup untuk menilai kinerja pemasaran. Kita perlu melihat kualitas lead, konversi, proses penjualan, dan kontribusinya terhadap revenue."
 reading_time: 4
 ---
 
-A campaign can generate hundreds of leads and still produce disappointing revenue.
+Sebuah kampanye bisa menghasilkan ratusan lead, tetapi revenue yang dihasilkan tetap mengecewakan.
 
-That is one of the easiest marketing mistakes to make: **assuming more leads automatically means better marketing.**
+Ini salah satu kesalahan yang paling mudah terjadi dalam pemasaran: **menganggap semakin banyak lead berarti semakin baik pemasaran.**
 
-The real question is not only how many leads marketing generates, but what happens to those leads after they enter the funnel.
+Pertanyaan yang lebih penting bukan hanya berapa banyak lead yang dihasilkan, tetapi apa yang terjadi pada lead tersebut setelah masuk ke dalam funnel.
 
-## Start with lead quality
+## Mulai dari kualitas lead
 
-Two campaigns can generate the same number of leads but create very different commercial outcomes.
+Dua kampanye bisa menghasilkan jumlah lead yang sama, tetapi memberikan hasil bisnis yang sangat berbeda.
 
-A useful analysis should ask:
+Analisis yang lebih baik perlu menjawab beberapa pertanyaan:
 
-- How many leads match the target customer profile?
-- How many respond when contacted?
-- How many become qualified opportunities?
-- How many eventually purchase?
+- Berapa banyak lead yang sesuai dengan profil pelanggan yang dituju?
+- Berapa banyak yang merespons ketika dihubungi?
+- Berapa banyak yang menjadi calon pelanggan yang memenuhi kualifikasi?
+- Berapa banyak yang akhirnya melakukan pembelian?
 
-Lead volume is an input. Revenue is an outcome.
+**Jumlah lead adalah input. Revenue adalah hasil.**
 
-## Connect marketing to the sales funnel
+## Hubungkan pemasaran dengan proses penjualan
 
-I prefer to look at the chain:
+Saya lebih suka melihat rangkaian berikut:
 
-**Spend → Leads → Qualified Leads → Opportunities → Customers → Revenue**
+**Biaya Pemasaran → Lead → Lead Berkualitas → Peluang → Pelanggan → Revenue**
 
-If the number of leads rises but qualified leads or customers do not, adding more budget to acquisition may simply make the problem larger.
+Jika jumlah lead meningkat tetapi lead berkualitas atau jumlah pelanggan tidak ikut meningkat, menambah anggaran untuk mendapatkan lebih banyak lead justru bisa memperbesar masalah.
 
-The bottleneck could be targeting, offer, qualification, follow-up, sales execution, or the product itself.
+Hambatannya bisa berada pada penargetan, penawaran, proses kualifikasi, tindak lanjut, kemampuan tim penjualan, atau bahkan produknya sendiri.
 
-## Look beyond platform metrics
+## Jangan hanya melihat metrik iklan
 
-Metrics such as CTR, CPL, and ROAS are useful, but they should not be isolated from commercial performance.
+Metrik seperti CTR, CPL, dan ROAS tetap penting, tetapi sebaiknya tidak dilihat terpisah dari kinerja bisnis.
 
-A stronger marketing dashboard connects campaign data with CRM and sales data so that decisions can be made from the full funnel rather than from advertising data alone.
+Dashboard pemasaran yang lebih kuat menghubungkan data kampanye dengan data CRM dan penjualan sehingga keputusan dapat dibuat berdasarkan keseluruhan funnel, bukan hanya berdasarkan data iklan.
 
-## The practical takeaway
+## Pelajaran praktis
 
-Before asking **"How can we get more leads?"**, ask:
+Sebelum bertanya **"Bagaimana cara mendapatkan lebih banyak lead?"**, coba tanyakan:
 
-> **"What is preventing the leads we already have from becoming customers?"**
+> **"Apa yang membuat lead yang sudah kita miliki belum menjadi pelanggan?"**
 
-Sometimes the highest-impact marketing decision is not generating more demand. It is fixing the conversion system between demand and revenue.
+Terkadang keputusan pemasaran yang paling berdampak bukan mendapatkan lebih banyak permintaan, tetapi memperbaiki sistem konversi antara permintaan dan revenue.
