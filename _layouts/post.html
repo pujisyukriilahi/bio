@@ -7,6 +7,64 @@ layout: default
   <div class="post-meta">{{ page.date | date: "%d %B %Y" }}{% if page.reading_time %} · {{ page.reading_time }} min read{% endif %}</div>
   {% if page.description %}<p class="lead">{{ page.description }}</p>{% endif %}
   <div class="post-content">{{ content }}</div>
+
+  <div class="share-box" aria-label="Share article">
+    <div class="eyebrow">Share Article</div>
+    <p class="share-intro">Bagikan insight ini ke jaringan Anda.</p>
+    <div class="share-actions">
+      <a class="btn share-btn" href="https://www.threads.net/intent/post?text={{ page.title | append: ' — ' | append: page.url | absolute_url | uri_escape }}" target="_blank" rel="noopener noreferrer" aria-label="Share to Threads">Share to Threads</a>
+      <button class="btn share-btn" type="button" id="instagram-story-share" aria-label="Share to Instagram Story">Share to Instagram Story</button>
+      <button class="btn share-btn" type="button" id="copy-article-link" aria-label="Copy article link">Copy Link</button>
+    </div>
+    <p class="share-note" id="share-note" role="status" aria-live="polite"></p>
+  </div>
+
   {% if page.tags %}<div style="margin-top:48px"><div class="eyebrow">Topics</div>{% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}</div>{% endif %}
   <div style="margin-top:56px;padding-top:28px;border-top:1px solid var(--line)"><div class="eyebrow">About the Author</div><h3>Puji Syukri Ilahi</h3><p>Strategic marketing, market intelligence, business growth, analytics, and corporate learning professional.</p><a class="btn" href="{{ '/' | relative_url }}#contact">Contact Me</a></div>
 </article>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const articleUrl = window.location.href;
+  const articleTitle = {{ page.title | jsonify }};
+  const note = document.getElementById('share-note');
+  const copyButton = document.getElementById('copy-article-link');
+  const instagramButton = document.getElementById('instagram-story-share');
+
+  function showNote(message) {
+    if (!note) return;
+    note.textContent = message;
+    window.setTimeout(function () { note.textContent = ''; }, 3500);
+  }
+
+  if (copyButton) {
+    copyButton.addEventListener('click', async function () {
+      try {
+        await navigator.clipboard.writeText(articleUrl);
+        showNote('Link artikel berhasil disalin.');
+      } catch (error) {
+        showNote('Gagal menyalin link. Silakan salin URL dari browser.');
+      }
+    });
+  }
+
+  if (instagramButton) {
+    instagramButton.addEventListener('click', async function () {
+      const shareData = { title: articleTitle, text: articleTitle, url: articleUrl };
+      try {
+        if (navigator.share) {
+          await navigator.share(shareData);
+          showNote('Gunakan menu share perangkat untuk memilih Instagram Story.');
+        } else {
+          await navigator.clipboard.writeText(articleUrl);
+          showNote('Link disalin. Buka Instagram dan gunakan fitur Story untuk membagikannya.');
+        }
+      } catch (error) {
+        if (error && error.name !== 'AbortError') {
+          showNote('Link artikel siap dibagikan ke Instagram Story dari perangkat Anda.');
+        }
+      }
+    });
+  }
+});
+</script>
