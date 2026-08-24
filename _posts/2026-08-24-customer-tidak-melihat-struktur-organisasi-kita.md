@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Customer Tidak Melihat Struktur Organisasi Kita"
-date: 2026-08-24
+date: 2026-08-23
 categories:
   - Marketing Strategy
 tags:
