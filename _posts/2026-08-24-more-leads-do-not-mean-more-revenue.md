@@ -3,7 +3,7 @@ layout: post
 title: "Banyak Lead Tidak Otomatis Berarti Banyak Revenue"
 date: 2026-08-24
 categories:
-  - Analitik Pemasaran
+  - Marketing Analytics
 tags:
   - Generasi Lead
   - Funnel Pemasaran
