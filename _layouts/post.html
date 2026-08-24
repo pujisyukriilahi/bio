@@ -1,0 +1,11 @@
+---
+layout: default
+---
+<article class="post wrap">
+  <div class="eyebrow">{{ page.categories | join: ' • ' }}</div>
+  <h1>{{ page.title }}</h1>
+  <div class="post-meta">{{ page.date | date: "%d %B %Y" }}{% if page.reading_time %} · {{ page.reading_time }} min read{% endif %}</div>
+  {% if page.description %}<p class="lead">{{ page.description }}</p>{% endif %}
+  <div class="post-content">{{ content }}</div>
+  {% if page.tags %}<div style="margin-top:48px">{% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}</div>{% endif %}
+</article>
