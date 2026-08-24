@@ -1,8 +1,8 @@
 title: "Puji Syukri Ilahi"
-description: "Marketing strategis, market intelligence, pertumbuhan bisnis, analitik, dan pembelajaran korporat."
+description: "Strategic marketing, market intelligence, business growth, analytics, and corporate learning professional."
 url: "https://pujisyukriilahi.github.io"
 baseurl: "/bio"
-lang: "id"
+lang: "en"
 markdown: kramdown
 permalink: /insights/:title/
 plugins:
