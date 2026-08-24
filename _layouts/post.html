@@ -9,16 +9,9 @@ layout: default
   <div class="post-content">{{ content }}</div>
 
   <div class="share-box" aria-label="Share article">
-    <div class="eyebrow">Share Article</div>
+    <div class="eyebrow">Bagikan Insight</div>
     <p class="share-intro">Bagikan insight ini ke platform pilihan Anda.</p>
     <div class="share-actions">
-      <a class="btn share-btn" href="https://www.threads.net/intent/post?text={{ page.title | append: ' — ' | append: page.url | absolute_url | uri_escape }}" target="_blank" rel="noopener noreferrer">Threads</a>
-      <a class="btn share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absolute_url | uri_escape }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a class="btn share-btn" href="https://wa.me/?text={{ page.title | append: ' — ' | append: page.url | absolute_url | uri_escape }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-      <a class="btn share-btn" href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url | uri_escape }}" target="_blank" rel="noopener noreferrer">Facebook</a>
-      <a class="btn share-btn" href="mailto:?subject={{ page.title | uri_escape }}&body={{ page.title | append: ' — ' | append: page.url | absolute_url | uri_escape }}">Email</a>
-      <button class="btn share-btn" type="button" id="instagram-story-share">Instagram Story</button>
-      <button class="btn share-btn" type="button" id="native-share">More</button>
       <button class="btn share-btn" type="button" id="copy-article-link">Copy Link</button>
     </div>
     <p class="share-note" id="share-note" role="status" aria-live="polite"></p>
@@ -31,54 +24,24 @@ layout: default
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   const articleUrl = window.location.href;
-  const articleTitle = {{ page.title | jsonify }};
   const note = document.getElementById('share-note');
   const copyButton = document.getElementById('copy-article-link');
-  const instagramButton = document.getElementById('instagram-story-share');
-  const nativeButton = document.getElementById('native-share');
 
   function showNote(message) {
     if (!note) return;
     note.textContent = message;
-    window.setTimeout(function () { note.textContent = ''; }, 3500);
+    window.setTimeout(function () { note.textContent = ''; }, 3000);
   }
 
-  async function copyLink() {
-    try {
-      await navigator.clipboard.writeText(articleUrl);
-      showNote('Link artikel berhasil disalin.');
-    } catch (error) {
-      showNote('Gagal menyalin link. Silakan salin URL dari browser.');
-    }
-  }
-
-  async function openNativeShare() {
-    if (!navigator.share) {
-      await copyLink();
-      return;
-    }
-    try {
-      await navigator.share({ title: articleTitle, text: articleTitle, url: articleUrl });
-    } catch (error) {
-      if (error && error.name !== 'AbortError') showNote('Menu berbagi tidak dapat dibuka.');
-    }
-  }
-
-  if (copyButton) copyButton.addEventListener('click', copyLink);
-  if (nativeButton) nativeButton.addEventListener('click', openNativeShare);
-
-  if (instagramButton) {
-    instagramButton.addEventListener('click', async function () {
+  if (copyButton) {
+    copyButton.addEventListener('click', async function () {
       try {
-        if (navigator.share) {
-          await navigator.share({ title: articleTitle, text: articleTitle, url: articleUrl });
-          showNote('Pilih Instagram dari menu berbagi perangkat.');
-        } else {
-          await copyLink();
-          showNote('Link disalin. Buka Instagram dan bagikan melalui Story.');
-        }
+        await navigator.clipboard.writeText(articleUrl);
+        showNote('Link artikel berhasil disalin.');
+        copyButton.textContent = 'Copied!';
+        window.setTimeout(function () { copyButton.textContent = 'Copy Link'; }, 1800);
       } catch (error) {
-        if (error && error.name !== 'AbortError') showNote('Link artikel siap dibagikan ke Instagram Story.');
+        showNote('Gagal menyalin link. Silakan salin URL dari browser.');
       }
     });
   }
