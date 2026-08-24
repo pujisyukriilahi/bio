@@ -24,9 +24,43 @@
   </script>
   {% endif %}
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggle = document.querySelector('.nav-toggle');
+      const menu = document.querySelector('.menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', function () {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+        menu.classList.toggle('is-open', !expanded);
+      });
+      menu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          toggle.setAttribute('aria-expanded', 'false');
+          menu.classList.remove('is-open');
+        });
+      });
+    });
+  </script>
 </head>
 <body>
-<header><div class="wrap"><nav><a class="brand" href="{{ '/' | relative_url }}">PUJI SYUKRI ILAHI</a><div class="menu"><a href="{{ '/' | relative_url }}#about">About</a><a href="{{ '/portfolio/' | relative_url }}">Portfolio</a><a href="{{ '/experience/' | relative_url }}">Experience</a><a href="{{ '/insights/' | relative_url }}">Insights</a><a href="{{ '/' | relative_url }}#contact">Contact</a></div></nav></div></header>
+<header>
+  <div class="wrap">
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a class="brand" href="{{ '/' | relative_url }}">PUJI SYUKRI ILAHI</a>
+      <button class="nav-toggle" type="button" aria-controls="site-menu" aria-expanded="false" aria-label="Open navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="menu" id="site-menu">
+        <a href="{{ '/' | relative_url }}#about">About</a>
+        <a href="{{ '/portfolio/' | relative_url }}">Portfolio</a>
+        <a href="{{ '/experience/' | relative_url }}">Experience</a>
+        <a href="{{ '/insights/' | relative_url }}">Insights</a>
+        <a href="{{ '/' | relative_url }}#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
 <main>{{ content }}</main>
 <footer><div class="wrap">© {{ 'now' | date: '%Y' }} Puji Syukri Ilahi · Research • Strategy • Commercial • Learning</div></footer>
 </body>
