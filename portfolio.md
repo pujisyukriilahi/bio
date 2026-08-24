@@ -12,26 +12,26 @@ permalink: /portfolio/
   <div class="list" style="margin-top:48px;">
     <article>
       <div class="eyebrow">Market Intelligence • 2024–2025</div>
-      <h2>PT Finnet Indonesia — Finpay Remittance</h2>
-      <p><strong>Market Intelligence</strong></p>
+      <h2>PT Finnet Indonesia</h2>
+      <p><strong>Market Intelligence — Finpay Remittance</strong></p>
       <p>Managed Competitor, Customer, and Product Intelligence research for Finpay Remittance, including benchmarking, customer analysis, value proposition development, and strategic recommendations.</p>
-      <div class="meta">Role: Commercial Training & Marketing Research Consultant, Proxsis Group</div>
+      <div class="meta">Role: Commercial Training & Market Research Consultant, Proxsis Group</div>
     </article>
 
     <article>
       <div class="eyebrow">New Product Development • 2024–2025</div>
-      <h2>PT Finnet Indonesia — Payroll Solution & Earned Wage Access</h2>
-      <p><strong>New Product Development</strong></p>
+      <h2>PT Finnet Indonesia</h2>
+      <p><strong>New Product Development — Payroll Solution & Earned Wage Access</strong></p>
       <p>Analyzed opportunities for Payroll Solutions and Earned Wage Access (EWA), translating market and customer findings into recommendations for product development, positioning, and partnerships.</p>
-      <div class="meta">Role: Commercial Training & Marketing Research Consultant, Proxsis Group</div>
+      <div class="meta">Role: Commercial Training & Market Research Consultant, Proxsis Group</div>
     </article>
 
     <article>
       <div class="eyebrow">Marketing & Sales Strategy • 2026</div>
-      <h2>PT Finnet Indonesia — Marketing & Sales Plan</h2>
-      <p><strong>Marketing & Sales Planning</strong></p>
-      <p>Contributed to Brand Perception Survey, Market Size & Market Share analysis, and development of a Marketing & Sales Playbook.</p>
-      <div class="meta">Role: Commercial Training & Marketing Research Consultant, Proxsis Group</div>
+      <h2>PT Finnet Indonesia</h2>
+      <p><strong>Marketing & Sales Playbook Multifinance</strong></p>
+      <p>Contributed to Brand Perception Survey, Market Size & Market Share analysis, and development of a Marketing & Sales Playbook for the Multifinance segment.</p>
+      <div class="meta">Role: Commercial Training & Market Research Consultant, Proxsis Group</div>
     </article>
 
     <article>
@@ -39,7 +39,7 @@ permalink: /portfolio/
       <h2>PT Pertamina International Shipping</h2>
       <p><strong>Customer & Vendor Satisfaction Research</strong></p>
       <p>Supported fieldwork, data validation, and analysis covering Customer Satisfaction Index (CSI), Net Promoter Score (NPS), and improvement recommendations.</p>
-      <div class="meta">Role: Commercial Training & Marketing Research Consultant, Proxsis Group</div>
+      <div class="meta">Role: Commercial Training & Market Research Consultant, Proxsis Group</div>
     </article>
 
     <article>
@@ -47,7 +47,7 @@ permalink: /portfolio/
       <h2>Indonesia Tourism Development Corporation (ITDC)</h2>
       <p><strong>Willingness to Pay & Price Perception Research</strong></p>
       <p>Designed the survey structure, questionnaire, respondent screening, quality control process, and digital survey validation for willingness-to-pay and price-perception research.</p>
-      <div class="meta">Role: Commercial Training & Marketing Research Consultant, Proxsis Group</div>
+      <div class="meta">Role: Commercial Training & Market Research Consultant, Proxsis Group</div>
     </article>
 
     <article>
