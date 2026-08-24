@@ -3,7 +3,7 @@ layout: post
 title: "Customer Tidak Melihat Struktur Organisasi Kita"
 date: 2026-08-24
 categories:
-  - Integrated Marketing
+  - Marketing Strategy
 tags:
   - Integrated Marketing
   - Customer Journey
