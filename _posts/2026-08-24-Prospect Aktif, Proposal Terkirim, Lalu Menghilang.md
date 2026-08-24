@@ -1,3 +1,4 @@
+---
 layout: post
 title: "Prospect Aktif, Proposal Terkirim, Lalu Menghilang"
 date: 2026-08-24
