@@ -75,7 +75,7 @@ Coba tambahkan sesuatu yang relevan:
 - opsi scope yang lebih sederhana,
 - atau penjelasan mengenai risiko jika masalah tidak segera ditangani.
 
-Dalam commercial marketing, value dan trust menjadi semakin penting karena customer memiliki semakin banyak pilihan dan informasi. Whitepaper Proxsis Mark juga menempatkan proof, relationship, dan customer experience sebagai bagian dari sistem pertumbuhan, bukan aktivitas yang berdiri sendiri.
+Dalam commercial marketing, value dan trust menjadi semakin penting karena customer memiliki semakin banyak pilihan dan informasi.
 
 Jadi, setiap follow-up sebaiknya membawa sesuatu yang membantu prospect berpikir atau mengambil keputusan.
 
@@ -145,7 +145,6 @@ Tetapi sebagai:
 
 **“solusi untuk masalah bisnis tertentu.”**
 
-Ini juga sejalan dengan prinsip commercial measurement: aktivitas marketing dan sales sebaiknya dihubungkan dengan intent, conversion, retention, dan revenue, bukan berhenti pada aktivitas atau volume semata.
 
 ## 6. Close atau Recycle: Tidak semua opportunity harus terus dikejar
 
@@ -228,8 +227,3 @@ Karena follow-up yang efektif bukan yang paling sering dilakukan.
 
 **Follow-up yang efektif adalah yang membantu prospect mengambil langkah berikutnya.**
 
-Buat teman-teman yang menangani B2B sales, training, consulting, atau account management, saya penasaran:
-
-**Biasanya prospect paling sering mulai menghilang setelah follow-up ke berapa?**
-
-**Dan apa yang paling efektif membuat mereka kembali merespons?**
