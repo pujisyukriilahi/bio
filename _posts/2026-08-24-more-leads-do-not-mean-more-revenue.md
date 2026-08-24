@@ -5,9 +5,9 @@ date: 2026-08-24
 categories:
   - Marketing Analytics
 tags:
-  - Generasi Lead
-  - Funnel Pemasaran
-  - Konversi Penjualan
+  - Lead Generation
+  - Marketing Funnel
+  - Sales Conversion
 description: "Jumlah lead saja tidak cukup untuk menilai kinerja pemasaran. Kita perlu melihat kualitas lead, konversi, proses penjualan, dan kontribusinya terhadap revenue."
 reading_time: 4
 ---
