@@ -4,8 +4,9 @@ layout: default
 <article class="post wrap">
   <div class="eyebrow">{{ page.categories | join: ' • ' }}</div>
   <h1>{{ page.title }}</h1>
-  <div class="post-meta">{{ page.date | date: "%d %B %Y" }}{% if page.reading_time %} · {{ page.reading_time }} min read{% endif %}</div>
+  <div class="post-meta">{{ page.date | date: "%d %B %Y" }}{% if page.reading_time %} · {{ page.reading_time }} menit baca{% endif %}</div>
   {% if page.description %}<p class="lead">{{ page.description }}</p>{% endif %}
   <div class="post-content">{{ content }}</div>
-  {% if page.tags %}<div style="margin-top:48px">{% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}</div>{% endif %}
+  {% if page.tags %}<div style="margin-top:48px"><div class="eyebrow">Topik</div>{% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}</div>{% endif %}
+  <div style="margin-top:56px;padding-top:28px;border-top:1px solid var(--line)"><div class="eyebrow">Tentang Penulis</div><h3>Puji Syukri Ilahi</h3><p>Profesional di bidang pemasaran strategis, market intelligence, pertumbuhan bisnis, analitik, dan pembelajaran korporat.</p><a class="btn" href="{{ '/' | relative_url }}#contact">Hubungi Saya</a></div>
 </article>
