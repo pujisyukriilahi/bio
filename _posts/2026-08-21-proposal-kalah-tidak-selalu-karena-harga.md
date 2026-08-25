@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Proposal Kalah Tidak Selalu Karena Harga"
-date: 2026-08-24
+date: 2026-08-21
 categories:
   - B2B Sales
 tags:
