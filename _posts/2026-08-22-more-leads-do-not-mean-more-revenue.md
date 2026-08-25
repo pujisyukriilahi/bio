@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Banyak Lead Tidak Otomatis Berarti Banyak Revenue"
-date: 2026-08-24
+date: 2026-08-22
 categories:
   - Marketing Analytics
 tags:
