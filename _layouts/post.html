@@ -4,7 +4,7 @@ layout: default
 <article class="post wrap">
   <div class="eyebrow">{{ page.categories | join: ' • ' }}</div>
   <h1>{{ page.title }}</h1>
-  <div class="post-meta">{{ page.date | date: "%d %B %Y" }}{% if page.reading_time %} · {{ page.reading_time }} min read{% endif %}</div>
+  <div class="post-meta">{{ page.date | date: "%d %B %Y" }}{% if page.reading_time %} · {{ page.reading_time }} min read{% endif %} · <span class="article-views" data-goatcounter-path="{{ page.url | relative_url }}">— visits</span></div>
   {% if page.description %}<p class="lead">{{ page.description }}</p>{% endif %}
   <div class="post-content">{{ content }}</div>
 
@@ -26,11 +26,22 @@ document.addEventListener('DOMContentLoaded', function () {
   const articleUrl = window.location.href;
   const note = document.getElementById('share-note');
   const copyButton = document.getElementById('copy-article-link');
+  const viewElement = document.querySelector('[data-goatcounter-path]');
 
   function showNote(message) {
     if (!note) return;
     note.textContent = message;
     window.setTimeout(function () { note.textContent = ''; }, 3000);
+  }
+
+  if (viewElement) {
+    const path = viewElement.getAttribute('data-goatcounter-path');
+    fetch('https://pujisyukriilahi.goatcounter.com/counter/' + encodeURIComponent(path) + '.json')
+      .then(function (response) { return response.ok ? response.json() : null; })
+      .then(function (data) {
+        if (data && data.count !== undefined) viewElement.textContent = data.count + ' visits';
+      })
+      .catch(function () {});
   }
 
   if (copyButton) {
