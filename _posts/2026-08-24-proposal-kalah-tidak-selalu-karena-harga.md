@@ -90,6 +90,4 @@ Sering kali, pemenangnya adalah proposal yang paling mampu membuat klien merasa:
 
 **"Vendor ini memahami masalah kami, solusinya relevan, dan kami percaya mereka bisa menjalankannya."**
 
-Saya rangkum framework evaluasi proposal ini dalam infografik di bawah.
-
 Menurut pengalaman Anda, **apa yang paling sering membuat sebuah proposal kalah?**
