@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Commercial Check"
-description: "A quick self-assessment to understand the strengths and gaps of your commercial team across strategy, marketing, sales, customer management, analytics, and collaboration."
+description: "A quick self-assessment to understand the strengths and gaps of your commercial team across strategy, marketing, sales, customer management, analytics, AI, technology, and collaboration."
 permalink: /commercial-check/
 ---
 
@@ -10,8 +10,8 @@ permalink: /commercial-check/
     <div class="eyebrow">Commercial Team Self-Assessment</div>
     <h1>Commercial Check</h1>
     <p class="lead">How strong is your commercial team?</p>
-    <p>Assess your team's commercial maturity across strategy, lead generation, sales process, customer management, performance analytics, and cross-functional collaboration.</p>
-    <div class="assessment-note"><strong>How it works:</strong> 30 statements · 1–5 scale · approximately 7–10 minutes.</div>
+    <p>Assess your team's commercial maturity across strategy, lead generation, sales process, customer management, performance analytics, AI & technology adoption, and cross-functional collaboration.</p>
+    <div class="assessment-note"><strong>How it works:</strong> 35 statements · 1–5 scale · approximately 8–10 minutes.</div>
   </section>
 
   <form id="commercial-check-form" class="assessment-form" novalidate>
@@ -25,11 +25,17 @@ permalink: /commercial-check/
       </div>
     </section>
 
+    <div class="completion-status" id="completion-status" aria-live="polite">
+      <strong id="completion-text">0 of 35 questions answered</strong>
+      <div class="completion-bar"><span id="completion-bar-fill" style="width:0%"></span></div>
+      <div class="completion-note" id="completion-note">Answer every statement to unlock your result.</div>
+    </div>
+
     <div id="question-container"></div>
 
-    <section class="assessment-section" style="border-top:0;">
+    <section class="assessment-section results-section" style="border-top:0;">
       <div class="section-head"><h2>Your Results</h2><div class="meta">Calculated automatically</div></div>
-      <div id="result-placeholder" class="assessment-placeholder">Complete all 30 statements to see your Commercial Check result.</div>
+      <div id="result-placeholder" class="assessment-placeholder">Complete all 35 statements to see your Commercial Check result.</div>
       <div id="result-panel" class="result-panel" hidden>
         <div class="result-score-wrap">
           <div class="eyebrow">Overall Commercial Maturity</div>
@@ -51,116 +57,80 @@ permalink: /commercial-check/
     </section>
 
     <div class="assessment-footer-actions">
-      <button class="btn primary" type="submit">Calculate My Result</button>
+      <button class="btn primary" id="calculate-button" type="submit">Calculate My Result</button>
+      <div class="form-submit-note" id="form-submit-note">Complete all questions before calculating.</div>
     </div>
   </form>
 </div>
 
 <style>
-.commercial-check-page{padding:20px 0 80px}.assessment-hero{max-width:820px}.assessment-hero h1{font-size:clamp(3rem,7vw,5.8rem);line-height:.98;letter-spacing:-.045em;margin:14px 0}.assessment-note{margin-top:24px;padding:16px 18px;border:1px solid var(--line);background:#fff;border-radius:12px;max-width:650px}.assessment-form{padding-top:10px}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.form-grid label,.question-card label{display:grid;gap:8px;font-weight:700}.form-grid input,.form-grid select{width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:8px;background:#fff;font:inherit;color:var(--ink)}.assessment-section{padding:68px 0}.question-group{padding:48px 0;border-top:1px solid var(--line)}.question-group:first-child{border-top:0}.question-group h2{font-size:2rem}.question-card{padding:22px 0;border-bottom:1px solid var(--line)}.question-card:last-child{border-bottom:0}.question-text{font-size:1.05rem;margin:0 0 15px;font-weight:700}.scale-options{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.scale-options label{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:12px 8px;border:1px solid var(--line);border-radius:10px;background:#fff;cursor:pointer;font-size:.85rem;font-weight:600;text-align:center}.scale-options input{accent-color:var(--ink)}.scale-options label:has(input:checked){background:var(--ink);color:#fff;border-color:var(--ink)}.result-panel{display:grid;gap:28px}.result-score-wrap{padding:28px;border:1px solid var(--line);background:#fff;border-radius:16px}.overall-score{font-size:clamp(3rem,6vw,5rem);font-weight:800;line-height:1;margin:10px 0}.maturity-label{display:inline-block;padding:7px 11px;border-radius:999px;border:1px solid var(--line);font-weight:800}.dimension-results{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.dimension-card{padding:20px;border:1px solid var(--line);background:#fff;border-radius:14px}.dimension-header{display:flex;justify-content:space-between;gap:16px;align-items:baseline}.dimension-score{font-weight:800}.bar{height:8px;border-radius:999px;background:#e8e8e2;overflow:hidden;margin-top:14px}.bar span{display:block;height:100%;background:var(--ink)}.recommendation-card{padding:24px;border:1px solid var(--line);background:#fff;border-radius:16px}.priority-item{padding:15px 0;border-bottom:1px solid var(--line)}.priority-item:last-child{border-bottom:0}.priority-score{font-weight:800}.result-actions{margin-top:4px}.assessment-placeholder{padding:20px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);background:#fff}.assessment-footer-actions{display:flex;justify-content:center;padding:30px 0 0}.error-message{color:#8a2d2d;font-size:.92rem;margin-top:8px}@media(max-width:800px){.form-grid,.dimension-results{grid-template-columns:1fr}.scale-options{grid-template-columns:repeat(5,1fr);gap:6px}.scale-options label{font-size:.75rem;padding:10px 4px}.commercial-check-page{padding-top:0}}@media(max-width:520px){.scale-options{grid-template-columns:1fr 1fr 1fr 1fr 1fr}.scale-options label{min-height:66px}.question-card{padding:18px 0}}
+.commercial-check-page{padding:20px 0 80px}.assessment-hero{max-width:820px}.assessment-hero h1{font-size:clamp(3rem,7vw,5.8rem);line-height:.98;letter-spacing:-.045em;margin:14px 0}.assessment-note{margin-top:24px;padding:16px 18px;border:1px solid var(--line);background:#fff;border-radius:12px;max-width:650px}.assessment-form{padding-top:10px}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.form-grid label,.question-card label{display:grid;gap:8px;font-weight:700}.form-grid input,.form-grid select{width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:8px;background:#fff;font:inherit;color:var(--ink)}.completion-status{position:sticky;top:73px;z-index:5;padding:14px 16px;margin:18px 0;background:rgba(247,247,244,.96);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:12px}.completion-status strong{display:block;font-size:.94rem}.completion-bar{height:7px;background:#e8e8e2;border-radius:999px;overflow:hidden;margin-top:9px}.completion-bar span{display:block;height:100%;background:var(--ink);transition:width .2s ease}.completion-note,.form-submit-note{margin-top:7px;color:var(--muted);font-size:.86rem}.assessment-section{padding:68px 0}.question-group{padding:48px 0;border-top:1px solid var(--line)}.question-group:first-child{border-top:0}.question-group h2{font-size:2rem}.question-card{padding:22px 0;border-bottom:1px solid var(--line)}.question-card:last-child{border-bottom:0}.question-text{font-size:1.05rem;margin:0 0 15px;font-weight:700}.question-card.missing{padding:18px 14px;margin:0 -14px;border:1px solid #b34a4a;border-radius:12px}.question-card.missing .question-text{color:#7f1f1f}.missing-message{margin-top:8px;color:#8a2d2d;font-size:.88rem;font-weight:700}.scale-options{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.scale-options label{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:12px 8px;border:1px solid var(--line);border-radius:10px;background:#fff;cursor:pointer;font-size:.85rem;font-weight:600;text-align:center}.scale-options input{accent-color:var(--ink)}.scale-options label:has(input:checked){background:var(--ink);color:#fff;border-color:var(--ink)}.result-panel{display:grid;gap:28px}.result-score-wrap{padding:28px;border:1px solid var(--line);background:#fff;border-radius:16px}.overall-score{font-size:clamp(3rem,6vw,5rem);font-weight:800;line-height:1;margin:10px 0}.maturity-label{display:inline-block;padding:7px 11px;border-radius:999px;border:1px solid var(--line);font-weight:800}.dimension-results{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.dimension-card{padding:20px;border:1px solid var(--line);background:#fff;border-radius:14px}.dimension-header{display:flex;justify-content:space-between;gap:16px;align-items:baseline}.dimension-score{font-weight:800}.bar{height:8px;border-radius:999px;background:#e8e8e2;overflow:hidden;margin-top:14px}.bar span{display:block;height:100%;background:var(--ink)}.recommendation-card{padding:24px;border:1px solid var(--line);background:#fff;border-radius:16px}.priority-item{padding:15px 0;border-bottom:1px solid var(--line)}.priority-item:last-child{border-bottom:0}.priority-score{font-weight:800}.result-actions{margin-top:4px}.assessment-placeholder{padding:20px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);background:#fff}.assessment-footer-actions{display:flex;flex-direction:column;align-items:center;gap:10px;padding:30px 0 0}.form-submit-note{min-height:20px}.is-disabled{opacity:.55;cursor:not-allowed}.ai-callout{margin:0 0 8px;padding:14px 16px;border:1px solid var(--line);background:#fff;border-radius:10px;color:#444}@media(max-width:800px){.form-grid,.dimension-results{grid-template-columns:1fr}.scale-options{grid-template-columns:repeat(5,1fr);gap:6px}.scale-options label{font-size:.75rem;padding:10px 4px}.commercial-check-page{padding-top:0}}@media(max-width:520px){.completion-status{top:62px}.scale-options{grid-template-columns:1fr 1fr 1fr 1fr 1fr}.scale-options label{min-height:66px}.question-card{padding:18px 0}}
 </style>
 
 <script>
 (function(){
   const dimensions = [
     {
-      key:'strategy',
-      title:'Commercial Strategy',
-      description:'Target market, positioning, value proposition, and commercial direction.',
-      questions:[
-        'Our team has a clearly defined target customer.',
-        'Our value proposition is clear and differentiated from competitors.',
-        'Commercial priorities are directly linked to business goals.',
-        'The team understands why customers choose or reject our offering.',
-        'Commercial strategy is reviewed and updated as market conditions change.'
-      ]
+      key:'strategy', title:'Commercial Strategy', description:'Target market, positioning, value proposition, and commercial direction.',
+      questions:['Our team has a clearly defined target customer.','Our value proposition is clear and differentiated from competitors.','Commercial priorities are directly linked to business goals.','The team understands why customers choose or reject our offering.','Commercial strategy is reviewed and updated as market conditions change.']
     },
     {
-      key:'marketing',
-      title:'Lead Generation & Marketing',
-      description:'Demand generation, lead quality, channel effectiveness, and marketing-sales handoff.',
-      questions:[
-        'We have clear and measurable lead generation channels.',
-        'Leads are classified based on quality or potential value.',
-        'Marketing and sales use the same definition of a qualified lead.',
-        'Marketing channel performance can be measured through inquiry or sales.',
-        'The team regularly evaluates lead quality, not only lead volume.'
-      ]
+      key:'marketing', title:'Lead Generation & Marketing', description:'Demand generation, lead quality, channel effectiveness, and marketing-sales handoff.',
+      questions:['We have clear and measurable lead generation channels.','Leads are classified based on quality or potential value.','Marketing and sales use the same definition of a qualified lead.','Marketing channel performance can be measured through inquiry or sales.','The team regularly evaluates lead quality, not only lead volume.']
     },
     {
-      key:'sales',
-      title:'Sales Process',
-      description:'Pipeline discipline, qualification, proposal quality, negotiation, and closing.',
-      questions:[
-        'Our sales pipeline has clearly defined stages and criteria.',
-        'Every opportunity has a clear next step and owner.',
-        'Sales uses a qualification process before opportunities enter the active pipeline.',
-        'Proposals are built around customer needs and business problems.',
-        'We conduct win/loss reviews to understand why opportunities are won or lost.'
-      ]
+      key:'sales', title:'Sales Process', description:'Pipeline discipline, qualification, proposal quality, negotiation, and closing.',
+      questions:['Our sales pipeline has clearly defined stages and criteria.','Every opportunity has a clear next step and owner.','Sales uses a qualification process before opportunities enter the active pipeline.','Proposals are built around customer needs and business problems.','We conduct win/loss reviews to understand why opportunities are won or lost.']
     },
     {
-      key:'customer',
-      title:'Customer & CRM',
-      description:'Customer data, follow-up, relationship management, retention, and feedback.',
-      questions:[
-        'Customer and prospect data is stored in a structured system.',
-        'Sales has a clear and consistent follow-up process.',
-        'Relevant customer interaction history is accessible to the right team members.',
-        'We have a clear strategy to increase repeat business or retention.',
-        'Customer feedback is used to improve products, services, or commercial processes.'
-      ]
+      key:'customer', title:'Customer & CRM', description:'Customer data, follow-up, relationship management, retention, and feedback.',
+      questions:['Customer and prospect data is stored in a structured system.','Sales has a clear and consistent follow-up process.','Relevant customer interaction history is accessible to the right team members.','We have a clear strategy to increase repeat business or retention.','Customer feedback is used to improve products, services, or commercial processes.']
     },
     {
-      key:'analytics',
-      title:'Performance & Analytics',
-      description:'KPI management, funnel measurement, reporting, and data-driven decisions.',
-      questions:[
-        'Our commercial team has clear and measurable KPIs.',
-        'Pipeline and conversion rates are monitored regularly.',
-        'Management can identify the biggest bottleneck in the commercial funnel.',
-        'Marketing, sales, and revenue data can be analyzed together.',
-        'Commercial decisions are based on data, not only intuition.'
-      ]
+      key:'analytics', title:'Performance & Analytics', description:'KPI management, funnel measurement, reporting, and data-driven decisions.',
+      questions:['Our commercial team has clear and measurable KPIs.','Pipeline and conversion rates are monitored regularly.','Management can identify the biggest bottleneck in the commercial funnel.','Marketing, sales, and revenue data can be analyzed together.','Commercial decisions are based on data, not only intuition.']
     },
     {
-      key:'people',
-      title:'People & Collaboration',
-      description:'Capability, leadership, coaching, teamwork, and cross-functional execution.',
-      questions:[
-        'The sales and marketing team has the capabilities required by the business.',
-        'Managers conduct regular coaching with their team members.',
-        'Sales, marketing, customer service, and operations have clear handover processes.',
-        'Functions understand their role in the end-to-end customer journey.',
-        'The team regularly reviews performance and agrees on improvement actions.'
-      ]
+      key:'technology', title:'AI, Tools & Technology', description:'CRM, analytics, automation, AI adoption, data hygiene, and workflow integration.',
+      callout:'Think about how consistently tools and AI are actually embedded in daily commercial work—not only whether the team has access to them.',
+      questions:['Our team uses CRM or another structured system consistently to manage leads, opportunities, and pipeline.','Our commercial team uses dashboards or analytics tools to support decisions and performance reviews.','We use automation to reduce repetitive commercial or marketing tasks where appropriate.','AI tools are used consistently for relevant sales or marketing workflows such as research, content, analysis, prospecting, or productivity.','We have clear practices for data hygiene, tool adoption, and responsible use of AI in commercial work.']
+    },
+    {
+      key:'people', title:'People & Collaboration', description:'Capability, leadership, coaching, teamwork, and cross-functional execution.',
+      questions:['The sales and marketing team has the capabilities required by the business.','Managers conduct regular coaching with their team members.','Sales, marketing, customer service, and operations have clear handover processes.','Functions understand their role in the end-to-end customer journey.','The team regularly reviews performance and agrees on improvement actions.']
     }
   ];
 
-  const container = document.getElementById('question-container');
-  const form = document.getElementById('commercial-check-form');
-  const placeholder = document.getElementById('result-placeholder');
-  const resultPanel = document.getElementById('result-panel');
-  const overallScore = document.getElementById('overall-score');
-  const maturityLabel = document.getElementById('maturity-label');
-  const resultSummary = document.getElementById('result-summary');
-  const dimensionResults = document.getElementById('dimension-results');
-  const priorityResults = document.getElementById('priority-results');
-  const copyResult = document.getElementById('copy-result');
+  const TOTAL_QUESTIONS = dimensions.reduce((sum, dim) => sum + dim.questions.length, 0);
+  const container=document.getElementById('question-container');
+  const form=document.getElementById('commercial-check-form');
+  const placeholder=document.getElementById('result-placeholder');
+  const resultPanel=document.getElementById('result-panel');
+  const overallScore=document.getElementById('overall-score');
+  const maturityLabel=document.getElementById('maturity-label');
+  const resultSummary=document.getElementById('result-summary');
+  const dimensionResults=document.getElementById('dimension-results');
+  const priorityResults=document.getElementById('priority-results');
+  const copyResult=document.getElementById('copy-result');
+  const completionText=document.getElementById('completion-text');
+  const completionBar=document.getElementById('completion-bar-fill');
+  const completionNote=document.getElementById('completion-note');
+  const calculateButton=document.getElementById('calculate-button');
+  const submitNote=document.getElementById('form-submit-note');
 
   function renderQuestions(){
-    dimensions.forEach(function(dim, di){
+    dimensions.forEach(function(dim){
       const section=document.createElement('section');
       section.className='question-group';
-      section.innerHTML='<div class="section-head"><div><h2>'+dim.title+'</h2><div class="meta">'+dim.description+'</div></div><div class="meta">5 questions</div></div>';
-      dim.questions.forEach(function(q, qi){
+      let heading='<div class="section-head"><div><h2>'+dim.title+'</h2><div class="meta">'+dim.description+'</div></div><div class="meta">5 questions</div></div>';
+      if(dim.callout) heading += '<div class="ai-callout">'+dim.callout+'</div>';
+      section.innerHTML=heading;
+      dim.questions.forEach(function(q,qi){
         const name=dim.key+'-'+qi;
         const card=document.createElement('div');
         card.className='question-card';
         let options='';
-        for(let score=1; score<=5; score++){
-          options += '<label><input required type="radio" name="'+name+'" value="'+score+'"><span>'+score+'</span></label>';
-        }
+        for(let score=1;score<=5;score++) options+='<label><input required type="radio" name="'+name+'" value="'+score+'"><span>'+score+'</span></label>';
         card.innerHTML='<p class="question-text">'+(qi+1)+'. '+q+'</p><div class="scale-options">'+options+'</div>';
         section.appendChild(card);
       });
@@ -168,11 +138,33 @@ permalink: /commercial-check/
     });
   }
 
+  function updateProgress(){
+    let answered=0;
+    dimensions.forEach(function(dim){
+      dim.questions.forEach(function(_,qi){
+        if(form.querySelector('input[name="'+dim.key+'-'+qi+'"]:checked')) answered++;
+      });
+    });
+    const pct=Math.round((answered/TOTAL_QUESTIONS)*100);
+    completionText.textContent=answered+' of '+TOTAL_QUESTIONS+' questions answered';
+    completionBar.style.width=pct+'%';
+    if(answered===TOTAL_QUESTIONS){
+      completionNote.textContent='All questions answered. Your result is ready to calculate.';
+      calculateButton.classList.remove('is-disabled');
+      calculateButton.disabled=false;
+      submitNote.textContent='';
+    } else {
+      completionNote.textContent='Answer all '+TOTAL_QUESTIONS+' statements to unlock your result.';
+      calculateButton.classList.add('is-disabled');
+      calculateButton.disabled=false;
+    }
+  }
+
   function maturity(avg){
-    if(avg < 2) return ['Foundational','The team needs stronger commercial foundations, clearer processes, and basic capability development.'];
-    if(avg < 3) return ['Emerging','There are initial practices in place, but consistency and standardization remain important priorities.'];
-    if(avg < 4) return ['Developing','Core practices are developing. The next focus should be stronger execution, coaching, and integration.'];
-    if(avg < 4.6) return ['Established','The team has consistent practices and can focus on optimization, advanced capabilities, and stronger data use.'];
+    if(avg<2)return ['Foundational','The team needs stronger commercial foundations, clearer processes, and basic capability development.'];
+    if(avg<3)return ['Emerging','There are initial practices in place, but consistency and standardization remain important priorities.'];
+    if(avg<4)return ['Developing','Core practices are developing. The next focus should be stronger execution, coaching, and integration.'];
+    if(avg<4.6)return ['Established','The team has consistent practices and can focus on optimization, advanced capabilities, and stronger data use.'];
     return ['Optimized','The team demonstrates a mature commercial system with a strong foundation for innovation, scale, and continuous improvement.'];
   }
 
@@ -180,10 +172,7 @@ permalink: /commercial-check/
     const scores=[];
     dimensions.forEach(function(dim){
       let total=0;
-      dim.questions.forEach(function(_, qi){
-        const selected=form.querySelector('input[name="'+dim.key+'-'+qi+'"]:checked');
-        total += selected ? Number(selected.value) : 0;
-      });
+      dim.questions.forEach(function(_,qi){total += Number(form.querySelector('input[name="'+dim.key+'-'+qi+'"]:checked').value);});
       scores.push({key:dim.key,title:dim.title,score:total/dim.questions.length});
     });
     const avg=scores.reduce((a,b)=>a+b.score,0)/scores.length;
@@ -191,48 +180,52 @@ permalink: /commercial-check/
     overallScore.textContent=avg.toFixed(1)+' / 5';
     maturityLabel.textContent=level[0];
     resultSummary.textContent=level[1];
-    dimensionResults.innerHTML=scores.map(function(item){
-      const pct=Math.round((item.score/5)*100);
-      return '<div class="dimension-card"><div class="dimension-header"><strong>'+item.title+'</strong><span class="dimension-score">'+item.score.toFixed(1)+'/5</span></div><div class="bar"><span style="width:'+pct+'%"></span></div></div>';
-    }).join('');
-
+    dimensionResults.innerHTML=scores.map(function(item){const pct=Math.round(item.score/5*100);return '<div class="dimension-card"><div class="dimension-header"><strong>'+item.title+'</strong><span class="dimension-score">'+item.score.toFixed(1)+'/5</span></div><div class="bar"><span style="width:'+pct+'%"></span></div></div>';}).join('');
     const priorities=scores.slice().sort((a,b)=>a.score-b.score).slice(0,3);
-    priorityResults.innerHTML=priorities.map(function(item,idx){
-      const gap=(5-item.score).toFixed(1);
-      return '<div class="priority-item"><div><strong>'+(idx+1)+'. '+item.title+'</strong></div><div class="meta">Current score: '+item.score.toFixed(1)+'/5 · Gap to 5: '+gap+'</div></div>';
-    }).join('');
-
-    placeholder.hidden=true;
-    resultPanel.hidden=false;
-    resultPanel.scrollIntoView({behavior:'smooth',block:'start'});
-
+    priorityResults.innerHTML=priorities.map(function(item,idx){return '<div class="priority-item"><div><strong>'+(idx+1)+'. '+item.title+'</strong></div><div class="meta">Current score: '+item.score.toFixed(1)+'/5 · Gap to 5: '+(5-item.score).toFixed(1)+'</div></div>';}).join('');
+    placeholder.hidden=true;resultPanel.hidden=false;resultPanel.scrollIntoView({behavior:'smooth',block:'start'});
     return {overall:avg,level:level[0],scores:scores,priorities:priorities};
   }
 
+  function showMissing(){
+    const missing=[];
+    dimensions.forEach(function(dim){
+      dim.questions.forEach(function(_,qi){
+        const checked=form.querySelector('input[name="'+dim.key+'-'+qi+'"]:checked');
+        const card=form.querySelector('input[name="'+dim.key+'-'+qi+'"]').closest('.question-card');
+        card.classList.toggle('missing',!checked);
+        let old=card.querySelector('.missing-message');
+        if(!checked){
+          missing.push(dim.key+'-'+qi);
+          if(!old){old=document.createElement('div');old.className='missing-message';old.textContent='Please answer this question.';card.appendChild(old);}
+        } else if(old){old.remove();}
+      });
+    });
+    return missing;
+  }
+
   renderQuestions();
-  form.addEventListener('submit', function(e){
+  updateProgress();
+  form.addEventListener('change',function(){updateProgress();showMissing();});
+  form.addEventListener('submit',function(e){
     e.preventDefault();
-    if(!form.checkValidity()){
-      form.reportValidity();
+    const missing=showMissing();
+    if(missing.length){
+      completionNote.textContent=missing.length+' question'+(missing.length===1?' is':'s are')+' still unanswered. Please complete the highlighted questions.';
+      submitNote.textContent='Please complete all highlighted questions before calculating your result.';
+      const first=form.querySelector('.question-card.missing');
+      if(first) first.scrollIntoView({behavior:'smooth',block:'center'});
       return;
     }
     window.__commercialResult=calculate();
   });
 
-  copyResult.addEventListener('click', async function(){
-    const r=window.__commercialResult;
-    if(!r) return;
+  copyResult.addEventListener('click',async function(){
+    const r=window.__commercialResult;if(!r)return;
     let text='Commercial Check – Puji Syukri Ilahi\nOverall: '+r.overall.toFixed(1)+'/5\nMaturity: '+r.level+'\n\nDimension Scores:\n';
-    r.scores.forEach(function(s){text += '- '+s.title+': '+s.score.toFixed(1)+'/5\n';});
-    text += '\nPriority Areas:\n';
-    r.priorities.forEach(function(s,i){text += (i+1)+'. '+s.title+' ('+s.score.toFixed(1)+'/5)\n';});
-    try{
-      await navigator.clipboard.writeText(text);
-      copyResult.textContent='Copied!';
-      setTimeout(()=>copyResult.textContent='Copy Result Summary',1800);
-    }catch(err){
-      alert(text);
-    }
+    r.scores.forEach(function(s){text+='- '+s.title+': '+s.score.toFixed(1)+'/5\n';});
+    text+='\nPriority Areas:\n';r.priorities.forEach(function(s,i){text+=(i+1)+'. '+s.title+' ('+s.score.toFixed(1)+'/5)\n';});
+    try{await navigator.clipboard.writeText(text);copyResult.textContent='Copied!';setTimeout(()=>copyResult.textContent='Copy Result Summary',1800);}catch(err){alert(text);}
   });
 })();
 </script>
