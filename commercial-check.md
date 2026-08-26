@@ -49,40 +49,11 @@ permalink: /commercial-check/
         <div id="maturity-label" class="maturity-label">—</div>
         <p id="result-summary"></p>
       </div>
-
-      <div class="result-block">
-        <div class="eyebrow">Dimension Scores</div>
-        <div id="dimension-results" class="dimension-results"></div>
-      </div>
-
-      <div class="result-block">
-        <div class="eyebrow">Commercial Diagnosis</div>
-        <h3>How the dimensions connect</h3>
-        <div id="diagnosis-results" class="diagnosis-stack"></div>
-      </div>
-
-      <div class="result-block">
-        <div class="eyebrow">Priority Areas</div>
-        <h3>The three most important intervention areas</h3>
-        <div id="priority-results"></div>
-      </div>
-
-      <div class="training-recommendation-card">
-        <div class="eyebrow">Recommended Development</div>
-        <h3>3 training recommendations for your commercial team</h3>
-        <p id="training-intro"></p>
-        <div id="training-recommendations"></div>
-      </div>
-
-      <div class="consultation-card">
-        <div class="eyebrow">Next Step</div>
-        <h3>Consult the result with MarkedTraining</h3>
-        <p>Use this result as an initial diagnostic. The final training recommendation should be validated with business context, root cause, current priorities, and expected business impact.</p>
-        <div class="actions result-actions">
-          <a class="btn primary" id="whatsapp-result" href="https://wa.me/628971021300" target="_blank" rel="noopener noreferrer">Discuss with MarkedTraining via WhatsApp</a>
-          <button class="btn" type="button" id="copy-result">Copy Result Summary</button>
-        </div>
-      </div>
+      <div class="result-block"><div class="eyebrow">Dimension Scores</div><div id="dimension-results" class="dimension-results"></div></div>
+      <div class="result-block"><div class="eyebrow">Commercial Diagnosis</div><h3>How the dimensions connect</h3><div id="diagnosis-results" class="diagnosis-stack"></div></div>
+      <div class="result-block"><div class="eyebrow">Priority Areas</div><h3>The three most important intervention areas</h3><div id="priority-results"></div></div>
+      <div class="training-recommendation-card"><div class="eyebrow">Recommended Development</div><h3>3 training recommendations for your commercial team</h3><p id="training-intro"></p><div id="training-recommendations"></div></div>
+      <div class="consultation-card"><div class="eyebrow">Next Step</div><h3>Consult the result with MarkedTraining</h3><p>Use this result as an initial diagnostic. The final training recommendation should be validated with business context, root cause, current priorities, and expected business impact.</p><div class="actions result-actions"><a class="btn primary" id="whatsapp-result" href="https://wa.me/628971021300" target="_blank" rel="noopener noreferrer">Discuss with MarkedTraining via WhatsApp</a><button class="btn" type="button" id="download-result">Download Result</button></div></div>
     </div>
   </section>
 </div>
@@ -93,7 +64,7 @@ permalink: /commercial-check/
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  var dimensions = [
+  var dimensions=[
     {key:'strategy',title:'Commercial Strategy',description:'Target market, positioning, value proposition, and commercial direction.',questions:['Our team has a clearly defined target customer.','Our value proposition is clear and differentiated from competitors.','Commercial priorities are directly linked to business goals.','The team understands why customers choose or reject our offering.','Commercial strategy is reviewed and updated as market conditions change.']},
     {key:'marketing',title:'Lead Generation & Marketing',description:'Demand generation, lead quality, channel effectiveness, and marketing-sales handoff.',questions:['We have clear and measurable lead generation channels.','Leads are classified based on quality or potential value.','Marketing and sales use the same definition of a qualified lead.','Marketing channel performance can be measured through inquiry or sales.','The team regularly evaluates lead quality, not only lead volume.']},
     {key:'sales',title:'Sales Process',description:'Pipeline discipline, qualification, proposal quality, negotiation, and closing.',questions:['Our sales pipeline has clearly defined stages and criteria.','Every opportunity has a clear next step and owner.','Sales uses a qualification process before opportunities enter the active pipeline.','Proposals are built around customer needs and business problems.','We conduct win/loss reviews to understand why opportunities are won or lost.']},
@@ -102,8 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {key:'technology',title:'AI, Tools & Technology',description:'CRM, analytics, automation, AI adoption, data hygiene, and workflow integration.',callout:'Think about how consistently tools and AI are actually embedded in daily commercial work—not only whether the team has access to them.',questions:['Our team uses CRM or another structured system consistently to manage leads, opportunities, and pipeline.','Our commercial team uses dashboards or analytics tools to support decisions and performance reviews.','We use automation to reduce repetitive commercial or marketing tasks where appropriate.','AI tools are used consistently for relevant sales or marketing workflows such as research, content, analysis, prospecting, or productivity.','We have clear practices for data hygiene, tool adoption, and responsible use of AI in commercial work.']},
     {key:'people',title:'People & Collaboration',description:'Capability, leadership, coaching, teamwork, and cross-functional execution.',questions:['The sales and marketing team has the capabilities required by the business.','Managers conduct regular coaching with their team members.','Sales, marketing, customer service, and operations have clear handover processes.','Functions understand their role in the end-to-end customer journey.','The team regularly reviews performance and agrees on improvement actions.']}
   ];
-
-  var relationRules = [
+  var relationRules=[
     {a:['marketing','sales'],title:'Lead-to-Sales Conversion Gap',text:'Marketing and Sales jointly shape the path from demand to revenue. When both areas are weak, increasing lead volume alone is unlikely to solve the problem. The team should align lead quality, qualification, handoff, discovery, proposal, and conversion.',training:['sales','marketing']},
     {a:['sales','customer'],title:'Conversion-to-Retention Gap',text:'A weak sales process combined with weak Customer & CRM practices can create friction before and after the deal. The team may need stronger discovery, follow-up, customer visibility, retention, and repeat-business practices.',training:['sales','customer']},
     {a:['analytics','technology'],title:'Data-to-Execution Gap',text:'When analytics maturity and technology adoption are both weak, data and tools may exist without becoming part of daily decision-making. The priority is to connect dashboards, CRM, automation, AI, and data discipline to real commercial workflows.',training:['analytics','technology']},
@@ -113,160 +83,24 @@ document.addEventListener('DOMContentLoaded', function () {
     {a:['people','sales'],title:'Capability-to-Conversion Gap',text:'Low People & Collaboration and Sales Process scores together suggest the issue may include both sales methodology and team capability. Training should combine selling skills with coaching and reinforcement.',training:['people','sales']},
     {a:['marketing','analytics'],title:'Demand-to-Measurement Gap',text:'Low Marketing and Performance & Analytics scores together suggest the organization may be generating activity without a strong view of channel quality, conversion, and contribution to revenue.',training:['marketing','analytics']}
   ];
-
-  var trainingMap = {
-    strategy:{name:'Commercial Strategy & Go-to-Market',format:'Workshop / working session',reason:'Strengthen target market, positioning, value proposition, and commercial priorities.'},
-    marketing:{name:'Lead Generation & Performance Marketing',format:'Workshop + hands-on implementation',reason:'Improve lead quality, channel effectiveness, and marketing-to-sales handoff.'},
-    sales:{name:'Consultative Selling, Discovery & Closing',format:'Workshop + roleplay + coaching',reason:'Strengthen qualification, discovery, proposal relevance, negotiation, and closing.'},
-    customer:{name:'CRM, Customer Management & Retention',format:'Hands-on training + coaching',reason:'Improve CRM discipline, follow-up, customer visibility, retention, and customer feedback use.'},
-    analytics:{name:'Commercial Analytics & Performance Dashboard',format:'Workshop + applied project',reason:'Connect KPI, pipeline, conversion, marketing, sales, and revenue data for better decisions.'},
-    technology:{name:'AI for Commercial Productivity & Workflow',format:'AI workshop / bootcamp + use-case implementation',reason:'Embed AI, automation, CRM, analytics, and data discipline into daily commercial workflows.'},
-    people:{name:'Sales Leadership, Coaching & Cross-Functional Alignment',format:'Leadership workshop + coaching',reason:'Improve manager coaching, accountability, handover, and collaboration across the customer journey.'}
-  };
-
-  var form=document.getElementById('commercial-check-form');
-  var container=document.getElementById('question-container');
-  var placeholder=document.getElementById('result-placeholder');
-  var panel=document.getElementById('result-panel');
-  var progressText=document.getElementById('completion-text');
-  var progressBar=document.getElementById('completion-bar-fill');
-  var progressNote=document.getElementById('completion-note');
-  var submitNote=document.getElementById('form-submit-note');
+  var trainingMap={strategy:{name:'Commercial Strategy & Go-to-Market',format:'Workshop / working session',reason:'Strengthen target market, positioning, value proposition, and commercial priorities.'},marketing:{name:'Lead Generation & Performance Marketing',format:'Workshop + hands-on implementation',reason:'Improve lead quality, channel effectiveness, and marketing-to-sales handoff.'},sales:{name:'Consultative Selling, Discovery & Closing',format:'Workshop + roleplay + coaching',reason:'Strengthen qualification, discovery, proposal relevance, negotiation, and closing.'},customer:{name:'CRM, Customer Management & Retention',format:'Hands-on training + coaching',reason:'Improve CRM discipline, follow-up, customer visibility, retention, and customer feedback use.'},analytics:{name:'Commercial Analytics & Performance Dashboard',format:'Workshop + applied project',reason:'Connect KPI, pipeline, conversion, marketing, sales, and revenue data for better decisions.'},technology:{name:'AI for Commercial Productivity & Workflow',format:'AI workshop / bootcamp + use-case implementation',reason:'Embed AI, automation, CRM, analytics, and data discipline into daily commercial workflows.'},people:{name:'Sales Leadership, Coaching & Cross-Functional Alignment',format:'Leadership workshop + coaching',reason:'Improve manager coaching, accountability, handover, and collaboration across the customer journey.'}};
+  var form=document.getElementById('commercial-check-form'),container=document.getElementById('question-container');
   var total=35;
-
-  function render(){
-    var html='';
-    dimensions.forEach(function(d){
-      html+='<section class="question-group"><div class="section-head"><div><h2>'+d.title+'</h2><div class="meta">'+d.description+'</div></div><div class="meta">5 questions</div></div>';
-      if(d.callout)html+='<div class="ai-callout">'+d.callout+'</div>';
-      d.questions.forEach(function(q,i){
-        html+='<div class="question-card"><p class="question-text">'+(i+1)+'. '+q+'</p><div class="scale-options">';
-        for(var s=1;s<=5;s++) html+='<label><input type="radio" required name="'+d.key+'-'+i+'" value="'+s+'"><span>'+s+'</span></label>';
-        html+='</div></div>';
-      });
-      html+='</section>';
-    });
-    container.innerHTML=html;
-  }
-
-  function updateProgress(){
-    var answered=form.querySelectorAll('input[type="radio"]:checked').length;
-    var pct=Math.round(answered/total*100);
-    progressText.textContent=answered+' of '+total+' questions answered';
-    progressBar.style.width=pct+'%';
-    progressNote.textContent=answered===total?'All questions answered. Your result is ready to calculate.':'Answer all '+total+' statements to unlock your result.';
-  }
-
-  function score(){
-    return dimensions.map(function(d){
-      var sum=0;
-      d.questions.forEach(function(_,i){sum += Number(form.querySelector('input[name="'+d.key+'-'+i+'"]:checked').value);});
-      return {key:d.key,title:d.title,score:sum/5};
-    });
-  }
-
-  function maturity(avg){
-    if(avg<2)return ['Foundational','The team needs stronger commercial foundations, clearer processes, and basic capability development.'];
-    if(avg<3)return ['Emerging','There are initial practices in place, but consistency and standardization remain important priorities.'];
-    if(avg<4)return ['Developing','Core practices are developing. The next focus should be stronger execution, coaching, and integration.'];
-    if(avg<4.6)return ['Established','The team has consistent practices and can focus on optimization, advanced capabilities, and stronger data use.'];
-    return ['Optimized','The team demonstrates a mature commercial system with a strong foundation for innovation, scale, and continuous improvement.'];
-  }
-
-  function connections(scores){
-    var low=scores.slice().sort(function(x,y){return x.score-y.score;}).slice(0,4).map(function(x){return x.key;});
-    var found=relationRules.filter(function(r){return r.a.every(function(k){return low.indexOf(k)!==-1;});});
-    if(!found.length){
-      found=[{title:'Integrated Commercial Capability Gap',text:'The lowest-scoring dimensions should be considered together. The pattern suggests a need to strengthen the commercial system rather than treat one isolated symptom.',training:low.slice(0,2)}];
-    }
-    return found.slice(0,3);
-  }
-
-  function renderResults(){
-    var scores=score();
-    var avg=scores.reduce(function(sum,x){return sum+x.score;},0)/scores.length;
-    var level=maturity(avg);
-    var rel=connections(scores);
-    var priorities=scores.slice().sort(function(x,y){return x.score-y.score;}).slice(0,3);
-    var recKeys=[];
-    rel.forEach(function(r){r.training.forEach(function(k){if(recKeys.indexOf(k)===-1)recKeys.push(k);});});
-    priorities.forEach(function(p){if(recKeys.length<3&&recKeys.indexOf(p.key)===-1)recKeys.push(p.key);});
-    var recommendations=recKeys.slice(0,3).map(function(k){return trainingMap[k];});
-
-    document.getElementById('overall-score').textContent=avg.toFixed(1)+' / 5';
-    document.getElementById('maturity-label').textContent=level[0];
-    document.getElementById('result-summary').textContent=level[1];
-
+  function render(){var html='';dimensions.forEach(function(d){html+='<section class="question-group"><div class="section-head"><div><h2>'+d.title+'</h2><div class="meta">'+d.description+'</div></div><div class="meta">5 questions</div></div>';if(d.callout)html+='<div class="ai-callout">'+d.callout+'</div>';d.questions.forEach(function(q,i){html+='<div class="question-card"><p class="question-text">'+(i+1)+'. '+q+'</p><div class="scale-options">';for(var s=1;s<=5;s++)html+='<label><input type="radio" required name="'+d.key+'-'+i+'" value="'+s+'"><span>'+s+'</span></label>';html+='</div></div>';});html+='</section>';});container.innerHTML=html;}
+  function progress(){var n=form.querySelectorAll('input[type="radio"]:checked').length,p=Math.round(n/total*100);document.getElementById('completion-text').textContent=n+' of '+total+' questions answered';document.getElementById('completion-bar-fill').style.width=p+'%';document.getElementById('completion-note').textContent=n===total?'All questions answered. Your result is ready to calculate.':'Answer all '+total+' statements to unlock your result.';}
+  function maturity(a){if(a<2)return['Foundational','The team needs stronger commercial foundations, clearer processes, and basic capability development.'];if(a<3)return['Emerging','There are initial practices in place, but consistency and standardization remain important priorities.'];if(a<4)return['Developing','Core practices are developing. The next focus should be stronger execution, coaching, and integration.'];if(a<4.6)return['Established','The team has consistent practices and can focus on optimization, advanced capabilities, and stronger data use.'];return['Optimized','The team demonstrates a mature commercial system with a strong foundation for innovation, scale, and continuous improvement.'];}
+  function calculate(){var scores=dimensions.map(function(d){var sum=0;d.questions.forEach(function(_,i){sum+=Number(form.querySelector('input[name="'+d.key+'-'+i+'"]:checked').value);});return{key:d.key,title:d.title,score:sum/5};});var avg=scores.reduce(function(s,x){return s+x.score;},0)/scores.length;var level=maturity(avg);var low=scores.slice().sort(function(a,b){return a.score-b.score;});var lows=low.slice(0,4).map(function(x){return x.key;});var rel=relationRules.filter(function(r){return r.a.every(function(k){return lows.indexOf(k)>-1;});}).slice(0,3);if(!rel.length)rel=[{title:'Integrated Commercial Capability Gap',text:'The lowest-scoring dimensions should be addressed as a connected commercial system rather than as isolated issues.',training:lows.slice(0,2)}];var keys=[];rel.forEach(function(r){r.training.forEach(function(k){if(keys.indexOf(k)<0)keys.push(k);});});low.forEach(function(x){if(keys.length<3&&keys.indexOf(x.key)<0)keys.push(x.key);});var rec=keys.slice(0,3).map(function(k){return trainingMap[k];});
+    document.getElementById('overall-score').textContent=avg.toFixed(1)+' / 5';document.getElementById('maturity-label').textContent=level[0];document.getElementById('result-summary').textContent=level[1];
     document.getElementById('dimension-results').innerHTML=scores.map(function(s){return '<div class="dimension-card"><div class="dimension-header"><strong>'+s.title+'</strong><span class="dimension-score">'+s.score.toFixed(1)+'/5</span></div><div class="bar"><span style="width:'+Math.round(s.score/5*100)+'%"></span></div></div>';}).join('');
-
     document.getElementById('diagnosis-results').innerHTML=rel.map(function(r){return '<div class="diagnosis-card"><h4>'+r.title+'</h4><p>'+r.text+'</p><p class="diagnosis-links"><strong>Connected dimensions:</strong> '+r.training.join(' + ')+'</p></div>';}).join('');
-
-    document.getElementById('priority-results').innerHTML=priorities.map(function(p,i){return '<div class="priority-item"><strong>'+(i+1)+'. '+p.title+'</strong><div class="meta">Current score: '+p.score.toFixed(1)+'/5 · Gap to 5: '+(5-p.score).toFixed(1)+'</div></div>';}).join('');
-
-    document.getElementById('training-intro').textContent='These recommendations are based on the pattern across multiple dimensions and their relationships, not on a single score. Use them as a starting point for discussion with MarkedTraining.';
-    document.getElementById('training-recommendations').innerHTML=recommendations.map(function(t,i){return '<div class="training-item"><span class="training-badge">Priority '+(i+1)+'</span><h4>'+t.name+'</h4><div class="training-meta">Suggested format: '+t.format+'</div><p class="training-reason">'+t.reason+'</p></div>';}).join('');
-
-    var company=(form.elements.company.value||'our team').trim();
-    var msg='Hi MarkedTraining, I completed the Commercial Check for '+company+'. Overall score: '+avg.toFixed(1)+'/5 ('+level[0]+'). Key cross-dimensional diagnosis: '+rel.map(function(r){return r.title;}).join(', ')+'. Recommended training: '+recommendations.map(function(t){return t.name;}).join('; ')+'. I would like to discuss the appropriate development plan.';
-    document.getElementById('whatsapp-result').href='https://wa.me/628971021300?text='+encodeURIComponent(msg);
-
-    placeholder.hidden=true;
-    panel.hidden=false;
-    panel.scrollIntoView({behavior:'smooth',block:'start'});
-    window.__commercialResult={overall:avg,level:level[0],scores:scores,relations:rel,recommendations:recommendations};
+    document.getElementById('priority-results').innerHTML=low.slice(0,3).map(function(x,i){return '<div class="priority-item"><strong>'+(i+1)+'. '+x.title+'</strong><div class="meta">Current score: '+x.score.toFixed(1)+'/5 · Gap to 5: '+(5-x.score).toFixed(1)+'</div></div>';}).join('');
+    document.getElementById('training-intro').textContent='These recommendations are based on the pattern across multiple dimensions and their relationships, not on a single score. Use them as a starting point for discussion with MarkedTraining.';document.getElementById('training-recommendations').innerHTML=rec.map(function(t,i){return '<div class="training-item"><span class="training-badge">Priority '+(i+1)+'</span><h4>'+t.name+'</h4><div class="training-meta">Suggested format: '+t.format+'</div><p class="training-reason">'+t.reason+'</p></div>';}).join('');
+    var company=(form.elements.company.value||'our team').trim();document.getElementById('whatsapp-result').href='https://wa.me/628971021300?text='+encodeURIComponent('Hi MarkedTraining, I completed the Commercial Check for '+company+'. Overall score: '+avg.toFixed(1)+'/5 ('+level[0]+'). Key diagnosis: '+rel.map(function(x){return x.title;}).join(', ')+'. Recommended training: '+rec.map(function(x){return x.name;}).join('; ')+'. I would like to discuss the appropriate development plan.');
+    document.getElementById('result-placeholder').hidden=true;document.getElementById('result-panel').hidden=false;document.getElementById('result-panel').scrollIntoView({behavior:'smooth',block:'start'});window.__commercialResult={overall:avg,level:level[0],scores:scores,relations:rel,recommendations:rec};
   }
-
-  render();
-  updateProgress();
-
-  form.addEventListener('change',function(e){
-    var input=e.target;
-    if(input && input.type==='radio'){
-      var labels=input.closest('.scale-options').querySelectorAll('label');
-      labels.forEach(function(label){label.classList.toggle('selected',label.querySelector('input').checked);});
-      updateProgress();
-      var card=input.closest('.question-card');
-      card.classList.remove('missing');
-      var msg=card.querySelector('.missing-message');
-      if(msg)msg.remove();
-    }
-  });
-
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    var missing=[];
-    dimensions.forEach(function(d){d.questions.forEach(function(_,i){
-      if(!form.querySelector('input[name="'+d.key+'-'+i+'"]:checked')){
-        var input=form.querySelector('input[name="'+d.key+'-'+i+'"]');
-        var card=input.closest('.question-card');
-        card.classList.add('missing');
-        if(!card.querySelector('.missing-message')){
-          var msg=document.createElement('div');msg.className='missing-message';msg.textContent='Please answer this question.';card.appendChild(msg);
-        }
-        missing.push(card);
-      }
-    });});
-    if(missing.length){
-      submitNote.textContent='Please complete all highlighted questions before calculating your result.';
-      missing[0].scrollIntoView({behavior:'smooth',block:'center'});
-      return;
-    }
-    try{
-      renderResults();
-      submitNote.textContent='Result calculated successfully.';
-    }catch(error){
-      console.error(error);
-      submitNote.textContent='Something went wrong while calculating. Please try again.';
-    }
-  });
-
-  document.getElementById('copy-result').addEventListener('click',function(){
-    var r=window.__commercialResult;if(!r)return;
-    var text='Commercial Check – Puji Syukri Ilahi\nOverall: '+r.overall.toFixed(1)+'/5\nMaturity: '+r.level+'\n\nCross-dimensional diagnosis:\n';
-    r.relations.forEach(function(x){text+='- '+x.title+': '+x.text+'\n';});
-    text+='\nRecommended Training:\n';
-    r.recommendations.forEach(function(t,i){text+=(i+1)+'. '+t.name+' — '+t.reason+'\n';});
-    navigator.clipboard.writeText(text).then(function(){document.getElementById('copy-result').textContent='Copied!';setTimeout(function(){document.getElementById('copy-result').textContent='Copy Result Summary';},1800);});
-  });
+  render();progress();
+  form.addEventListener('change',function(e){if(e.target&&e.target.type==='radio'){var labels=e.target.closest('.scale-options').querySelectorAll('label');labels.forEach(function(l){l.classList.toggle('selected',l.querySelector('input').checked);});progress();var c=e.target.closest('.question-card');c.classList.remove('missing');var m=c.querySelector('.missing-message');if(m)m.remove();}});
+  form.addEventListener('submit',function(e){e.preventDefault();var missing=[];dimensions.forEach(function(d){d.questions.forEach(function(_,i){if(!form.querySelector('input[name="'+d.key+'-'+i+'"]:checked')){var c=form.querySelector('input[name="'+d.key+'-'+i+'"]').closest('.question-card');c.classList.add('missing');if(!c.querySelector('.missing-message')){var m=document.createElement('div');m.className='missing-message';m.textContent='Please answer this question.';c.appendChild(m);}missing.push(c);}});});if(missing.length){document.getElementById('form-submit-note').textContent='Please complete all highlighted questions before calculating your result.';missing[0].scrollIntoView({behavior:'smooth',block:'center'});return;}try{calculate();document.getElementById('form-submit-note').textContent='Result calculated successfully.';}catch(err){console.error(err);document.getElementById('form-submit-note').textContent='Something went wrong while calculating. Please try again.';}});
+  document.getElementById('download-result').addEventListener('click',function(){var r=window.__commercialResult;if(!r)return;var lines=['Commercial Check – Puji Syukri Ilahi','Overall Commercial Maturity: '+r.overall.toFixed(1)+'/5','Maturity: '+r.level,'','Dimension Scores:'];r.scores.forEach(function(s){lines.push('- '+s.title+': '+s.score.toFixed(1)+'/5');});lines.push('','Commercial Diagnosis:');r.relations.forEach(function(x){lines.push('- '+x.title+': '+x.text);});lines.push('','Priority Areas:');r.scores.slice().sort(function(a,b){return a.score-b.score;}).slice(0,3).forEach(function(s,i){lines.push((i+1)+'. '+s.title+' ('+s.score.toFixed(1)+'/5)');});lines.push('','Recommended Training:');r.recommendations.forEach(function(t,i){lines.push((i+1)+'. '+t.name+' — '+t.reason);});lines.push('','Consultation: MarkedTraining via WhatsApp 08971021300');var blob=new Blob([lines.join('\n')],{type:'text/plain;charset=utf-8'});var url=URL.createObjectURL(blob);var a=document.createElement('a');a.href=url;a.download='commercial-check-result.txt';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);});
 });
 </script>
