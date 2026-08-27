@@ -4,16 +4,14 @@ layout: default
 <article class="post wrap">
   <div class="eyebrow">{{ page.categories | join: ' • ' }}</div>
   <h1>{{ page.title }}</h1>
-  <div class="post-meta">{{ page.date | date: "%d %B %Y" }}{% if page.reading_time %} · {{ page.reading_time }} min read{% endif %} · <span class="article-views" data-goatcounter-path="{{ page.url | relative_url }}">— visits</span></div>
+  <div class="post-meta">{{ page.date | date: "%d %B %Y" }}{% if page.reading_time %} · {{ page.reading_time }} min read{% endif %} · <span class="article-author">By @pujisyukriilahi</span> · <span class="article-views" data-goatcounter-path="{{ page.url | relative_url }}">— visits</span></div>
   {% if page.description %}<p class="lead">{{ page.description }}</p>{% endif %}
   <div class="post-content">{{ content }}</div>
 
   <div class="share-box" aria-label="Share article">
     <div class="eyebrow">Bagikan Insight</div>
     <p class="share-intro">Bagikan insight ini ke platform pilihan Anda.</p>
-    <div class="share-actions">
-      <button class="btn share-btn" type="button" id="copy-article-link">Copy Link</button>
-    </div>
+    <div class="share-actions"><button class="btn share-btn" type="button" id="copy-article-link">Copy Link</button></div>
     <p class="share-note" id="share-note" role="status" aria-live="polite"></p>
   </div>
 
@@ -36,12 +34,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (viewElement) {
     const path = viewElement.getAttribute('data-goatcounter-path');
-    fetch('https://pujisyukriilahi.goatcounter.com/counter/' + encodeURIComponent(path) + '.json')
+    const endpoint = 'https://pujisyukriilahi.goatcounter.com/counter/' + encodeURIComponent(path) + '.json';
+    fetch(endpoint)
       .then(function (response) { return response.ok ? response.json() : null; })
       .then(function (data) {
         if (data && data.count !== undefined) viewElement.textContent = data.count + ' visits';
       })
-      .catch(function () {});
+      .catch(function () { viewElement.textContent = '— visits'; });
   }
 
   if (copyButton) {
