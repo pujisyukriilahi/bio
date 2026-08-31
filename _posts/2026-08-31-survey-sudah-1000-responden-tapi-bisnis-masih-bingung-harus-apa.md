@@ -9,92 +9,121 @@ tags:
   - Market Research
   - Customer Insight
   - Business Strategy
-description: "Banyak research menghasilkan data yang melimpah tetapi belum tentu membantu bisnis mengambil keputusan. Masalahnya sering dimulai sebelum questionnaire dibuat."
-reading_time: 2
+  - Questionnaire
+description: "Dari pengalaman mengerjakan consumer research, saya belajar bahwa questionnaire seharusnya bukan titik awal. Research perlu dimulai dari business problem dan keputusan yang ingin dibuat."
+reading_time: 3
 ---
 
-Survey sudah selesai.
+Pernah mengerjakan survey dengan ratusan bahkan ribuan responden, tetapi setelah report selesai masih bingung menjawab:
 
-1.000 responden terkumpul.
+> **“Jadi, bisnis harus melakukan apa?”**
 
-Report sudah puluhan halaman.
+Saya pernah melihat situasi seperti ini dalam proses **consumer dan market research**.
 
-Lalu management bertanya:
+Data banyak. Chart banyak. Bahkan hasilnya terlihat menarik.
 
-> **“Jadi, kita harus melakukan apa?”**
+Tapi ketika dibawa ke diskusi bisnis, insight-nya belum cukup membantu mengambil keputusan.
 
-Kalau pertanyaan itu masih sulit dijawab, mungkin masalahnya bukan pada jumlah data.
+Dari situ saya belajar satu hal:
 
-**Mungkin research-nya dimulai dari questionnaire, bukan dari business problem.**
+> **Research yang baik tidak dimulai dari questionnaire.**
 
-## Mulai dari keputusan bisnis
+Ia dimulai dari **business problem.**
 
-Bayangkan penjualan sebuah brand turun.
+## Saya biasanya mulai dari keputusan
 
-Jangan langsung membuat pertanyaan:
+Misalnya sebuah brand mengalami penurunan penjualan.
 
-> “Apakah Anda puas dengan produk kami?”
+Kesalahan yang mudah terjadi adalah langsung membuat questionnaire:
 
-Tentukan dulu:
+> “Seberapa puas Anda dengan produk kami?”
 
-**Keputusan apa yang ingin dibuat?**
+Padahal sebelum bertanya kepada consumer, saya akan bertanya dulu kepada bisnis:
 
-Apakah harus:
+> **“Keputusan apa yang ingin dibuat setelah research ini selesai?”**
 
-- menurunkan harga?
-- memperbaiki produk?
-- mengubah komunikasi?
-- memperluas distribusi?
+Misalnya pilihannya:
 
-Baru tentukan informasi apa yang dibutuhkan untuk menjawabnya.
+**Turunkan harga?  
+Perbaiki produk?  
+Ubah komunikasi?  
+Perkuat distribusi?**
 
-Alurnya:
+Pertanyaan research kemudian dirancang untuk membantu menjawab keputusan tersebut.
 
-**Business Problem → Business Decision → Research Question → Questionnaire → Data → Insight → Action**
+## Framework yang saya gunakan
 
-Bukan:
+Kurang lebih alurnya:
 
-**Questionnaire → Data → Report → Bingung.**
+**Business Problem**  
+↓  
+**Business Decision**  
+↓  
+**Research Objective**  
+↓  
+**Research Design**  
+↓  
+**Questionnaire / Discussion Guide**  
+↓  
+**Data**  
+↓  
+**Insight**  
+↓  
+**Business Action**
 
-## Pertanyaan banyak bukan berarti research bagus
+Contoh sederhananya:
 
-Misalnya 70% responden mengatakan:
+**Problem:** Penjualan turun.
 
-> “Harga terlalu mahal.”
+**Decision:** Cari tahu apakah masalahnya harga, produk, komunikasi, atau distribusi.
 
-Apakah solusinya otomatis menurunkan harga?
+**Research Objective:** Memahami alasan customer mengurangi pembelian dan faktor yang memengaruhi pilihan mereka.
 
-Belum tentu.
+**Research:** Bisa dimulai dengan interview untuk memahami *why*, kemudian survey untuk mengukur seberapa besar pola tersebut terjadi.
 
-Bisa jadi masalah sebenarnya adalah **perceived value**.
+**Questionnaire:** Bukan hanya bertanya “apakah Anda puas?”, tetapi menggali perilaku dan alasan seperti:
 
-Customer merasa benefit yang diterima belum sebanding dengan harga.
+> “Apa alasan utama Anda membeli produk kompetitor dalam 3 bulan terakhir?”
 
-Ini mengubah keputusan bisnis secara signifikan.
+**Data:** 65% responden menyebut harga sebagai masalah.
 
-Karena itu, researcher jangan hanya bertanya:
+Tetapi setelah dianalisis lebih jauh, ternyata mereka bukan sekadar menganggap harga mahal.
 
-> **“Apa yang customer katakan?”**
+Mereka merasa **benefit yang diterima belum sebanding dengan harga.**
 
-Tetapi:
+Itulah titik ketika **data mulai berubah menjadi insight.**
 
-> **“Apa yang membuat mereka mengatakan itu, dan keputusan apa yang harus berubah karenanya?”**
+Dan action-nya pun tidak otomatis:
 
-## Filter sederhana sebelum membuat questionnaire
+**“Turunkan harga.”**
 
-Untuk setiap pertanyaan, coba tanyakan:
+Bisnis bisa menguji:
 
-> **“Jawaban ini akan membantu kita mengambil keputusan apa?”**
+**value proposition, bundling, packaging, atau komunikasi benefit.**
 
-Kalau tidak ada jawabannya, mungkin pertanyaan tersebut tidak perlu ada.
+## Pertanyaan yang selalu saya ajukan
 
-Dari pengalaman saya mengerjakan **consumer, customer, dan market research**, saya semakin melihat bahwa kualitas research sering ditentukan **sebelum questionnaire dibuat**.
+Sebelum sebuah questionnaire dibuat, saya akan kembali ke satu pertanyaan:
+
+> **“Jawaban dari pertanyaan ini nantinya akan membantu kita mengambil keputusan apa?”**
+
+Kalau tidak jelas, saya akan mempertanyakan kembali apakah pertanyaan tersebut memang perlu ditanyakan.
+
+Karena questionnaire yang panjang tidak otomatis menghasilkan research yang lebih baik.
 
 **Questionnaire adalah alat.  
 Data adalah bahan.  
 Insight adalah hasil analisis.  
 Business decision adalah tujuan.**
 
-Karena research yang baik bukan yang menghasilkan **data paling banyak**.
+Dari pengalaman saya, kualitas consumer research sering kali ditentukan **sebelum satu pertanyaan pun ditulis.**
 
-Tetapi yang membantu bisnis **mengambil keputusan dengan lebih baik.**
+Jadi daripada mulai dengan:
+
+> **“Apa yang mau kita tanyakan kepada consumer?”**
+
+Saya lebih memilih mulai dengan:
+
+> **“Apa yang perlu kita pahami agar bisnis bisa mengambil keputusan yang lebih baik?”**
+
+Menurut Anda, dalam research yang pernah Anda kerjakan, **bagian mana yang paling sering membuat prosesnya gagal: menentukan business question, questionnaire, data, atau menerjemahkan insight menjadi action?**
